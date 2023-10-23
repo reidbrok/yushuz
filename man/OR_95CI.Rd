@@ -22,7 +22,9 @@ ORresult
 A function that returns the odds ratio and confidence interval
 }
 \examples{
-OR_95CI(0,1,0.95,2)
+logit_reg <- glm(y ~ x1 + x2, data = toydata, family = binomial(link = "logit"))
+## FOR x1 variable
+OR_95CI(summary(logit_reg)$coef[2,1],summary(logit_reg)$coef[2,2],0.95,2)
 }
 \author{
 Yushu Zou
